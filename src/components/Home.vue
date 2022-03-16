@@ -4,12 +4,10 @@
    <div class="text-area">
    <!-- <h5 style="font-size: 2.25rem"><strong>Hello</strong></h5> -->
       <h3>
-        <strong>You Imagine,We Create</strong>
-      </h3>
-      <p>
+        <strong>You Imagine,We Create</strong><br>
         <strong>We are the best .</strong>
-      </p>
-           <button type="button" class="btn btn-secondary">Click for more info </button>
+      </h3>
+      <button type="button" class="btn btn-secondary">Make a reservation</button>
 
    </div>
   </section>
@@ -37,32 +35,33 @@ export default {
     margin-top: -10vh;
 }
 .home-img{
-  width: 30%;
   color: #fff;
   position: absolute;
-  bottom: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 .text-area {
- width: 90%;
+ /* width: 90%; */
  font-size: 2.25rem;
   color: #fff;
   position: absolute;
-  top: 58%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   position: fixed;
 }
 
-@media (min-width: 700px) and (max-width: 1000px) {
-.text-area  h3 p{
- font-size: 15px;
-    line-height: 15px;
-     top: 60%;
-}
+
+
+@media screen and (max-width: 1024px) {
+.text-area {top: 55%; font-size: 2.25rem; }
   
+}
+
+.home-img{
+  width: 40% !important;
 }
 </style>
