@@ -4,8 +4,10 @@
   <About />
   <Services />
    <Team />
-  <contact />
-  
+   <gallery/>
+   <prices />
+  <Contact />
+  <router-view/>
 </template>
 
 <script>
@@ -14,7 +16,9 @@ import Home from "./components/Home.vue"
 import About from "./components/About.vue"
 import Services from "./components/Services.vue"
 import Team from "./components/Team.vue"
-import contact from "./components/contact.vue"
+import prices from "./components/prices.vue"
+import gallery from "./components/gallery.vue"
+import Contact from "./components/contact.vue"
 
 
 export default {
@@ -24,7 +28,9 @@ export default {
     About,
     Services,
     Team,
-    contact
+    prices,
+    gallery,
+    Contact
   }
 }
 

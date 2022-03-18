@@ -30,6 +30,8 @@ export default {
    background-image:linear-gradient(rgb(59 59 59 / 80%), rgb(107 106 106 / 10%)),
     url("https://i.postimg.cc/q7NQ1bJS/home3.jpg");
     background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     background-position: center;
     height:100vh;
     margin-top: -10vh;
@@ -51,7 +53,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
 }
 
 
