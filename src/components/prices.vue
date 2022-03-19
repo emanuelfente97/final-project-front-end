@@ -6,7 +6,7 @@
   <div class="container" style="margin-top:30px">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card mx-auto" style="width: 300px; column-gap:20px">
+        <div class="card mx-auto">
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -41,7 +41,7 @@
 
 
       <div class="col-sm-12  col-md-6  col-lg-4">
-        <div class="card mx-auto" style="width: 300px; column-gap:20px">
+        <div class="card mx-auto" >
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -77,7 +77,7 @@
 
       <div class="col-sm-12 col-md-6 col-lg-4">
        
-        <div class="card mx-auto" style="width: 300px; column-gap:50px">
+        <div class="card mx-auto">
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -93,7 +93,7 @@
           </ul>
           <div class="card-body">
             <button type="button" class="btn btn-secondary"> R195</button>&nbsp;
-            &nbsp;
+          
             <button type="button" class="btn btn-secondary">Book</button>
           </div>
         </div>
@@ -148,8 +148,11 @@ gap: 30px;
 }
 .card{
   width:300px;
+  margin:10px;
+  height:500px;
   padding: 40px 20px;
   position: relative;
-  
+  /* column-gap: 10px */
+
 }
 </style>
