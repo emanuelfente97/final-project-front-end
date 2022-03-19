@@ -6,7 +6,7 @@
   <div class="container" style="margin-top:30px">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="card mx-auto" style="width: 100%; column-gap:20px">
+        <div class="card mx-auto" style="width: 300px; column-gap:20px">
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -41,7 +41,7 @@
 
 
       <div class="col-sm-12  col-md-6  col-lg-4">
-        <div class="card mx-auto" style="width: 100%; column-gap:20px">
+        <div class="card mx-auto" style="width: 300px; column-gap:20px">
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -77,7 +77,7 @@
 
       <div class="col-sm-12 col-md-6 col-lg-4">
        
-        <div class="card mx-auto" style="width: 100%; column-gap:50px">
+        <div class="card mx-auto" style="width: 300px; column-gap:50px">
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -147,6 +147,9 @@ h1:after {
 gap: 30px;
 }
 .card{
-  width:300px
+  width:300px;
+  padding: 40px 20px;
+  position: relative;
+  
 }
 </style>
