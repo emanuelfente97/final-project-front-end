@@ -5,7 +5,7 @@
       <p class="cheat">We Offer the following services</p>
     </div>
     <div class="main-box">
-      <div class="box box-red">
+      <div class="box box-red mx-auto">
         <div class="icon">
           <img
             class="img"
@@ -21,7 +21,7 @@
         </p>
       </div>
 
-      <div class="box box-grey">
+      <div class="box box-grey mx-auto">
         <img
           class="img"
           src="https://i.postimg.cc/C5VyVXqK/g40.jpg"
@@ -36,7 +36,7 @@
         </p>
       </div>
 
-      <div class="box box-red">
+      <div class="box box-red mx-auto">
         <div class="icon">
           <img
             class="img"
@@ -52,7 +52,7 @@
         </p>
       </div>
 
-      <div class="box box-grey">
+      <div class="box box-grey mx-auto">
         <div class="icon">
           <img
             class="img"
@@ -67,7 +67,7 @@
           labore.
         </p>
       </div>
-      <div class="box box-red">
+      <div class="box box-red mx-auto">
         <div class="icon">
           <img
             class="img"
@@ -83,7 +83,7 @@
         </p>
       </div>
 
-      <div class="box box-grey">
+      <div class="box box-grey mx-auto">
         <div class="icon">
           <img
             class="img"
@@ -260,5 +260,8 @@ hr {
 .box-red {
   background-color: #d50000;
 }
+.container{
+  width: 80%;
+}
+
 </style>
-Page 1 of 4

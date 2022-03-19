@@ -54,30 +54,30 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about"><i class="fa fa-user"></i> About</a>
+          <a @click="hideReservation" class="nav-link" href="#about"><i class="fa fa-user"></i> About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services"
+          <a @click="hideReservation" class="nav-link" href="#services"
             ><i class="fa fa-bars"></i> Services</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#prices"
+          <a @click="hideReservation" class="nav-link" href="#prices"
             ><i class="bi bi-pencil-square"></i>Prices
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#gallery"
+          <a @click="hideReservation" class="nav-link" href="#gallery"
             ><i class="bi bi-file-earmark-code-fill"></i> Gallery</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#Testimonials"
+          <a @click="hideReservation" class="nav-link" href="#Team"
             ><i class="bi bi-people-fill"></i> Team</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact"
+          <a @click="hideReservation" class="nav-link" href="#contact"
             ><i class="fa fa-fw fa-envelope"></i>Contacts</a
           >
         </li>
@@ -216,7 +216,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    hideReservation: function (){
+      this.$emit("changePage", false)
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -238,7 +244,7 @@ export default {};
   /* padding: 1% 4%; */
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
@@ -359,6 +365,20 @@ body {
   transition: transform 200ms, color 200ms;
   top: 20px;
 }
+/* 
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+} */
+
+/* .input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+} */
+/* 
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+} */
+
 .submit {
   background-color: #08d;
   border-radius: 12px;
