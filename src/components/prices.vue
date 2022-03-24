@@ -7,7 +7,7 @@
   <div class="container" style="margin-top:20px">
     <div class="row" >
       <div class="col-sm-12 col-md-6 col-lg-4 ">
-        <div class="card mx-auto">
+        <div class="card">
           <img
             src="https://i.postimg.cc/YqX0qKSq/pexels-photo-995300.jpg"
             class="card-img-top"
@@ -24,10 +24,11 @@
           <div class="card-body">
           
             <button
+            @click="makeReservation"
               type="button"
               class="btn btn-secondary"
             >
-              Book
+              Make A Reservation
             </button>
           </div>
         </div>
@@ -35,7 +36,7 @@
 
 
       <div class="col-sm-12  col-md-6  col-lg-4">
-        <div class="card mx-auto" >
+        <div class="card" >
           <img
             src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
             class="card-img-top"
@@ -52,11 +53,11 @@
           <div class="card-body">
            
             <button
-           
+           @click="makeReservation"
               type="button"
               class="btn btn-secondary"
             >
-              Book
+               Make A Reservation
             </button>
           </div>
         </div>
@@ -65,7 +66,7 @@
 
       <div class="col-sm-12 col-md-6 col-lg-4 ">
        
-        <div class="card mx-auto" >
+        <div class="card" >
           <img
             src="https://i.postimg.cc/Fs9yf4gM/pexels-photo-4449790.jpg"
             class="card-img-top"
@@ -82,7 +83,7 @@
           <div class="card-body">
             <!-- <button type="button" class="btn btn-secondary"> R195</button>&nbsp; -->
           
-            <button type="button" class="btn btn-secondary">Book</button>
+            <button @click="makeReservation" type="button" class="btn btn-secondary">Make a Reservation</button>
           </div>
         </div>
       </div>
@@ -94,13 +95,31 @@
 </section>
 </template>
 
-<script></script>
+<script>
+export default {
+ data() {
+    return {
+      jwt: localStorage.getItem("jwt") || null,
+    };
+  },
+  methods: {
+    makeReservation: function () {
+      if (localStorage.getItem("jwt") !== "undefined") {
+        this.$emit("myReservation", true);
+      } else {
+        alert("you need to be logged in");
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 .price{
 padding-top: 60px ;
 background: grey;
 }
+
 h1 {
   font-family: sans-serif;
   margin: 30px auto;
@@ -139,11 +158,14 @@ h1:after {
 /* .container{
 gap: 30px;
 } */
+.row {
+  width: 95%;
+  margin-inline: auto;
+}
 .card{
   width:300px;
   margin:10px;
   height:500px;
-  padding: 40px 20px;
   position: relative;
   /* column-gap: 10px */
 

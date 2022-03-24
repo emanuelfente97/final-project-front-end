@@ -64,7 +64,7 @@
           >
         </li>
         <li class="nav-item">
-          <a @click="hideReservation" class="nav-link" href="#prices"
+          <a  class="nav-link" href="#prices"
             ><i class="bi bi-pencil-square"></i>Prices
           </a>
         </li>
@@ -320,7 +320,7 @@ export default {
   },
   methods: {
     login() {
-      fetch("http://localhost:5000/api/auth/login", {
+      fetch("https://final-project-backend-2022.herokuapp.com/api/auth/login", {
         method: "POST",
         body: JSON.stringify({
           username: this.username,
@@ -332,6 +332,7 @@ export default {
       })
         .then((response) => response.json())
         .then(async(json) => {
+          if(json.accessToken)
           console.log(json);
           console.log(json.accessToken)
           alert("User logged in");

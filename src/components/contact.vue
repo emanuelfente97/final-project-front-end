@@ -34,7 +34,7 @@
           <textarea v-model="message" class="" name="message" required></textarea>
           <label>Message:</label>
         </div>
-        <button class="submit-btn">Send</button>  
+        <button class="submit-btn">Submit</button>  
       </form>
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
   methods: {
     handleSubmit() {
       (this.name, this.email,this.message),
-        fetch("http://localhost:9000/contact", {
+        fetch("https://final-project-backend-2022.herokuapp.com/api/contacts", {
           method: "POST",
           body: JSON.stringify({
             name: this.name,

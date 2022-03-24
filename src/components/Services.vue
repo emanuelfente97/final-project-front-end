@@ -233,13 +233,14 @@ h1:after {
 .main-box {
   display: flex;
   bottom: 100px;
+  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .box {
-  width: 300px;
-  margin: 10px;
+  width: 32%;
+  margin: 60px;
   text-align: center;
   padding: 40px 20px;
   color: #ffffff;

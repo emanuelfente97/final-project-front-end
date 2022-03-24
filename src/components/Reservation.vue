@@ -12,32 +12,32 @@
                 Reservation Form
               </h3>
             </div>
-            <form action="">
+            <form @submit.prevent="handleSubmit">
               <div class="row g-3">
                 <div class="col-md-6">
                   <input
                     type="text"
+                    required
                     class="form-control"
-                    placeholder="First Name"
+                    v-model="name"
+                    placeholder="Name"
                   />
                 </div>
                 <div class="col-md-6">
                   <input
                     type="text"
+                    required
+                    v-model="surname"
                     class="form-control"
-                    placeholder="Last Name"
+                    placeholder="Surname"
                   />
                 </div>
-                <div class="col-md-6">
-                  <input
-                    type="tel"
-                    class="form-control"
-                    placeholder="Phone Number"
-                  />
-                </div>
+               
                 <div class="col-md-6">
                   <input
                     type="email"
+                    v-model="email"
+                    required
                     class="form-control"
                     placeholder="Enter Email"
                   />
@@ -45,6 +45,8 @@
                 <div class="col-md-6">
                   <input
                     type="date"
+                    v-model="date"
+                    required
                     class="form-control"
                     placeholder="Enter Date"
                   />
@@ -52,6 +54,8 @@
                 <div class="col-md-6">
                   <input
                     type="time"
+                    v-model="time"
+                    required
                     class="form-control"
                     placeholder="Enter Email"
                   />
@@ -72,7 +76,7 @@
                 </div>
                 <div class="col-12 mt-5">
                   <button type="submit" class="btn btn-primary float-end">
-                    Book Appointment
+                    Submit
                   </button>
                   <a
                     class="btn btn-outline-secondary float-end me-2"
@@ -94,6 +98,11 @@
 export default {
   data() {
     return {
+       name: "",
+      surname: "",
+      date:"",
+      time: "",
+      message: "",
       form: false,
     };
   },
@@ -106,6 +115,24 @@ export default {
   methods: {
     showForm() {
       this.form = !this.form;
+    },
+  
+  handleSubmit() {
+      (this.name, this.surname, this.email, this.date, this.message, this.time),
+        fetch("https://final-project-backend-2022.herokuapp.com/api/contacts", {
+          method: "POST",
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+          body: JSON.stringify({
+            name: this.name,
+            surname: this.surname,
+            email: this.email,
+            time: this.time,
+            message: this.message,
+          }),
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json.msg))
+          .catch((err) => console.log(err.msg));
     },
   },
 };

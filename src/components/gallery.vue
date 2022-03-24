@@ -1,8 +1,8 @@
 <template>
 <section id="gallery" class="gallery">
   <h1><strong> Our Gallery</strong></h1>
-<p>Find a range of sdjflhfouewhhwleifhilewyilygqieuhqiuhwelihqwwilehuilqweeiqw</p>
-<p>ehilgeeukdgkuwgwdbhqwdukqdgku</p>
+<!-- <p>Find a range of sdjflhfouewhhwleifhilewyilygqieuhqiuhwelihqwwilehuilqweeiqw</p>
+<p>ehilgeeukdgkuwgwdbhqwdukqdgku</p> -->
 
 <!-- <div class="container-all"> -->
   <div class="row">
@@ -33,7 +33,6 @@
  <img src="https://i.postimg.cc/SRN9LnBh/g20.jpg" alt="">
    <span class="title">Lorem ipsum dolor</span>
   <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
-<!-- </div> -->
     </div>
     <div class="col-sm-12 col-md-4">
 <img src="https://i.postimg.cc/FKMk6PwD/g6.jpg" alt="">
@@ -45,7 +44,6 @@
  
 
 
-<!-- </div> -->
 </section>
 </template>
 
@@ -89,6 +87,9 @@ p{
   display:block;
   position:relative;
   float:left;
+}
+.row{
+  width: 100%;
 }
 img{
   width: 100%;

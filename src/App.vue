@@ -3,7 +3,7 @@
   <Home @myReservation="checkReservation" v-if="!reserve" />
   <About v-if="!reserve" />
   <Services v-if="!reserve" />
-  <Prices v-if="!reserve" />
+  <Prices @myReservation="checkReservation" v-if="!reserve" />
   <Team v-if="!reserve" />
   <Gallery v-if="!reserve" />
   <Contact v-if="!reserve" />
