@@ -69,6 +69,7 @@ h1{
 }
 .gallery{
   background: black;
+  padding-top:70px
 }
 .container-all{
   width: fit-content;

@@ -49,12 +49,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#navbar"
+          <a class="nav-link" aria-current="page" href="#home"
             ><i class="fa fa-fw fa-home"></i>Home</a
           >
         </li>
         <li class="nav-item">
-          <a @click="hideReservation" class="nav-link" href="#about"><i class="fa fa-user"></i> About</a>
+          <a @click="hideReservation" class="nav-link" href="#about"
+            ><i class="fa fa-user"></i> About</a
+          >
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#services"
@@ -72,7 +74,7 @@
           >
         </li>
         <li class="nav-item">
-          <a @click="hideReservation" class="nav-link" href="#Team"
+          <a @click="hideReservation" class="nav-link" href="#team"
             ><i class="bi bi-people-fill"></i> Team</a
           >
         </li>
@@ -86,14 +88,115 @@
           <!-- Button trigger modal -->
           <button
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-outline-primary"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModal1"
+            data-bs-target="#exampleModal"
           >
-            Sign up / sign in
+            Sign in
           </button>
 
           <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog"
+              style="
+                padding-top: 100px;
+                padding-bottom: auto;
+                height: 400px;
+                margin-bottom: 100px;
+              "
+            >
+              <div class="modal-content">
+                <div class="modal-header" style="height: 20px">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Modal title
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-2"></div>
+                      <div class="col-lg-6 col-md-8 login-box">
+                        <div class="col-lg-12 login-key">
+                          <i class="fa fa-key" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-lg-12 login-title">Log-in Form</div>
+
+                        <div class="col-lg-12 login-form">
+                          <div class="col-lg-12 login-form">
+                            <form @submit.prevent="login">
+                              <div class="form-group">
+                                <label class="form-control-label"
+                                  >USERNAME</label
+                                >
+                                <input
+                                  type="text"
+                                  v-model="username"
+                                  required
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label"
+                                  >PASSWORD</label
+                                >
+                                <input
+                                  v-model="password"
+                                  type="password"
+                                  required
+                                  class="form-control"
+                                  i
+                                />
+                              </div>
+
+                              <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                  <!-- Error Message -->
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-outline-primary"
+                                  >
+                                    LOGIN
+                                  </button>
+                                  <button
+                                    type="button"
+                                    class="btn btn-outline-secondary"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal1"
+                                  >
+                                    Sign up
+                                  </button>
+
+                                  <!-- <button type="submit" class="btn btn-outine-secondary">Sign up</button> -->
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal for sigup -->
           <div
             class="modal fade"
             id="exampleModal1"
@@ -123,85 +226,68 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <div class="login-wrap">
-                    <div class="login-html">
-                      <input
-                        id="tab-1"
-                        type="radio"
-                        name="tab"
-                        class="sign-in"
-                        checked
-                      /><label for="tab-1" class="tab">Sign In</label>
-                      <input
-                        id="tab-2"
-                        type="radio"
-                        name="tab"
-                        class="sign-up"
-                      /><label for="tab-2" class="tab">Sign Up</label>
-                      <div class="login-form">
-                        <div class="sign-in-htm">
-                          <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input" />
-                          </div>
-                          <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input
-                              id="pass"
-                              type="password"
-                              class="input"
-                              data-type="password"
-                            />
-                          </div>
-                          <div class="group">
-                            <input
-                              id="check"
-                              type="checkbox"
-                              class="check"
-                              checked
-                            />
-                            <label for="check"
-                              ><span class="icon"></span> Keep me signed
-                              in</label
-                            >
-                          </div>
-                          <div class="group">
-                            <input
-                              type="submit"
-                              class="button"
-                              value="Sign In"
-                            />
-                          </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-2"></div>
+                      <div class="col-lg-6 col-md-8 login-box">
+                        <div class="col-lg-12 login-key">
+                          <i class="fa fa-key" aria-hidden="true"></i>
                         </div>
-                        <div class="sign-up-htm">
-                          <div class="group">
-                            <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input" />
-                          </div>
-                          <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input
-                              id="pass"
-                              type="password"
-                              class="input"
-                              data-type="password"
-                            />
-                          </div>
+                        <div class="col-lg-12 login-title">Sign-up Form</div>
 
-                          <div class="group">
-                            <label for="pass" class="label"
-                              >Email Address</label
-                            >
-                            <input id="pass" type="text" class="input" />
-                          </div>
-                          <div class="group">
-                            <input
-                              type="submit"
-                              class="button"
-                              value="Sign Up"
-                            />
+                        <div class="col-lg-12 login-form">
+                          <div class="col-lg-12 login-form">
+                            <form @submit.prevent="register">
+                              <div class="form-group">
+                                <label class="form-control-label"
+                                  >USERNAME</label
+                                >
+                                <input
+                                  type="text"
+                                  v-model="username"
+                                  required
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label">Email</label>
+                                <input
+                                  type="email"
+                                  v-model="email"
+                                  required
+                                  class="form-control"
+                                />
+                              </div>
+                              <div class="form-group">
+                                <label class="form-control-label"
+                                  >PASSWORD</label
+                                >
+                                <input
+                                  v-model="password"
+                                  type="password"
+                                  required
+                                  class="form-control"
+                                  i
+                                />
+                              </div>
+
+                              <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                  <!-- Error Message -->
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-outline-primary"
+                                  >
+                                    Sign up
+                                  </button>
+                                </div>
+                              </div>
+                            </form>
                           </div>
                         </div>
+                        <div class="col-lg-3 col-md-2"></div>
                       </div>
                     </div>
                   </div>
@@ -209,6 +295,9 @@
               </div>
             </div>
           </div>
+          <button @click="logout" type="button" class="btn btn-outline-primary">
+            Log out
+          </button>
         </div>
       </ul>
     </div>
@@ -218,8 +307,70 @@
 <script>
 export default {
   methods: {
-    hideReservation: function (){
-      this.$emit("changePage", false)
+    hideReservation: function () {
+      this.$emit("changePage", false);
+    },
+  },
+  data() {
+    return {
+      username: "",
+      password: "",
+      email: "",
+    };
+  },
+  methods: {
+    login() {
+      fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(async(json) => {
+          console.log(json);
+          console.log(json.accessToken)
+          alert("User logged in");
+          await localStorage.setItem("jwt", json.accessToken);
+          
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    logout() {
+      localStorage.clear();
+      console.log("logout");
+      alert("user logged out");
+    },
+    register() {
+      fetch(" https://final-project-backend-2022.herokuapp.com/api/auth/register", {
+        method: "POST",
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password,
+          email: this.email,
+        }),
+        mode: "cors",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          // console.log(json);
+          localStorage.getItem("jwt", json.accessToken);
+          console.log(json.accessToken)
+          alert("User signed up");
+          // this.$router.push({ name: "services" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
     },
   },
 };
@@ -234,14 +385,10 @@ export default {
   width: 60px;
   height: 60px;
 }
-/* .but {
-  position: relative;
-  left: 10%;
-} */
 
 .navbar {
   display: flex;
-  /* padding: 1% 4%; */
+
   justify-content: space-between;
   align-items: center;
   background-color: black;
@@ -249,7 +396,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  /* height:20px !important; */
+
   z-index: 99999999999999999999999;
   box-shadow: 0 4px 12px 0 #fbfbfb33, 0 2px 4px rgb(0 0 0 / 5%);
 }
@@ -291,357 +438,139 @@ export default {
     left: 10%;
   }
 }
+
 body {
-  align-items: center;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-}
-
-.form {
-  background-color: #15172b;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: 500px;
-  padding: 20px;
-  width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.title {
-  color: #eee;
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 600;
-  margin-top: 30px;
-}
-
-.subtitle {
-  color: #eee;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-.input-container {
-  height: 50px;
-  position: relative;
-  width: 100%;
-}
-
-.ic1 {
-  margin-top: 40px;
-}
-
-.ic2 {
-  margin-top: 30px;
-}
-
-.input {
-  background-color: #303245;
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #eee;
-  font-size: 18px;
-  height: 100%;
-  outline: 0;
-  padding: 4px 20px 0;
-  width: 100%;
-}
-
-
-.placeholder {
-  color: none !important;
-  font-family: sans-serif;
-  left: 20px;
-  line-height: 14px;
-  pointer-events: none;
-  position: absolute;
-  transform-origin: 0 50%;
-  transition: transform 200ms, color 200ms;
-  top: 20px;
-}
-/* 
-.input:focus ~ .placeholder,
-.input:not(:placeholder-shown) ~ .placeholder {
-  transform: translateY(-30px) translateX(10px) scale(0.75);
-} */
-
-/* .input:not(:placeholder-shown) ~ .placeholder {
-  color: #808097;
-} */
-/* 
-.input:focus ~ .placeholder {
-  color: #dc2f55;
-} */
-
-.submit {
-  background-color: #08d;
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #eee;
-  cursor: pointer;
-  font-size: 18px;
-  height: 50px;
-  margin-top: 38px;
-
-  text-align: center;
-  width: 100%;
-}
-.close {
-  opacity: 10;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.submit:active {
-  background-color: #06b;
-}
-html {
-  height: 100%;
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: linear-gradient(#141e30, #04080e);
+  background: #222d32;
+  font-family: "Roboto", sans-serif;
 }
 
 .login-box {
-  /* position: absolute; */
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  /* transform: translate(-50%, -50%); */
-  background: rgba(0, 0, 0, 0.37);
-  box-sizing: border-box;
-  /* box-shadow: 0 15px 25px rgba(0,0,0,.6); */
-  border-radius: 10px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.login-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-}
-
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-.login-box .user-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-}
-
-body {
-  margin: 0;
-  color: #6a6f8c;
-  background: #c8c8c8;
-  font: 600 16px/18px "Open Sans", sans-serif;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
-.clearfix:after,
-.clearfix:before {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-  display: block;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.login-wrap {
-  width: 100%;
-  margin: auto;
-  max-width: 525px;
-  height: 60vh;
-  position: relative;
-  background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg)
-    no-repeat center;
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-.login-html {
-  width: 100%;
+  margin-top: 0px;
   height: 100%;
-  position: absolute;
-  padding: 20px 70px 50px 70px;
-  background: rgba(40, 57, 101, 0.9);
-}
-.login-html .sign-in-htm,
-.login-html .sign-up-htm {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-  transition: all 0.4s linear;
-}
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check {
-  display: none;
-}
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button {
-  text-transform: uppercase;
-}
-.login-html .tab {
-  font-size: 22px;
-  margin-right: 15px;
-  padding-bottom: 5px;
-  margin: 0 15px 10px 0;
-  display: inline-block;
-  border-bottom: 2px solid transparent;
-}
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab {
-  color: #fff;
-  border-color: #1161ee;
-}
-.button {
-  margin-top: 50x;
-}
-.login-form {
-  min-height: 345px;
-  position: relative;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-.login-form .group {
-  margin-bottom: 15px;
-}
-.login-form .group .label,
-.login-form .group .input,
-.login-form .group .button {
   width: 100%;
-  color: #fff;
-  display: block;
-}
-.login-form .group .input,
-.login-form .group .button {
-  border: none;
-  /* padding:15px 20px; */
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-}
-/* .login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-} */
-.login-form .group .label {
-  color: #aaa;
-  font-size: 12px;
-}
-.login-form .group .button {
-  background: #1161ee;
-  margin-top: 40px;
-}
-.login-form .group label .icon {
-  width: 15px;
-  height: 15px;
-  border-radius: 2px;
-  position: relative;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after {
-  content: "";
-  width: 10px;
-  height: 2px;
-  background: #fff;
-  position: absolute;
-  transition: all 0.2s ease-in-out 0s;
-}
-.login-form .group label .icon:before {
-  left: 3px;
-  width: 5px;
-  bottom: 6px;
-  transform: scale(0) rotate(0);
-}
-.login-form .group label .icon:after {
-  top: 6px;
-  right: 0;
-  transform: scale(0) rotate(0);
-}
-.login-form .group .check:checked + label {
-  color: #fff;
-}
-.login-form .group .check:checked + label .icon {
-  background: #1161ee;
-}
-.login-form .group .check:checked + label .icon:before {
-  transform: scale(1) rotate(45deg);
-}
-.login-form .group .check:checked + label .icon:after {
-  transform: scale(1) rotate(-45deg);
-}
-.login-html
-  .sign-in:checked
-  + .tab
-  + .sign-up
-  + .tab
-  + .login-form
-  .sign-in-htm {
-  transform: rotate(0);
-}
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
-  transform: rotate(0);
+  height: auto;
+  background: #1a2226;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.hr {
-  height: 2px;
-  margin: 60px 0 50px 0;
-  background: rgba(255, 255, 255, 0.2);
+.login-key {
+  height: 100px;
+  font-size: 80px;
+  line-height: 100px;
+  background: -webkit-linear-gradient(#27ef9f, #0db8de);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.foot-lnk {
+
+.login-title {
+  margin-top: 15px;
   text-align: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ecf0f5;
+}
+
+.login-form {
+  margin-top: 25px;
+  text-align: left;
+}
+
+input[type="text"] {
+  background-color: #1a2226;
+  border: none;
+  border-bottom: 2px solid #0db8de;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  color: #ecf0f5;
+}
+
+input[type="password"] {
+  background-color: #1a2226;
+  border: none;
+  border-bottom: 2px solid #0db8de;
+  border-top: 0px;
+  border-radius: 0px;
+  font-weight: bold;
+  outline: 0;
+  padding-left: 0px;
+  margin-bottom: 20px;
+  color: #ecf0f5;
+}
+
+.form-group {
+  outline: 0px;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 2px solid #0db8de;
+  outline: 0;
+  background-color: #1a2226;
+  color: #ecf0f5;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+.form-control-label {
+  font-size: 10px;
+  color: #6c6c6c;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+  border-color: #0db8de;
+  color: #0db8de;
+  border-radius: 0px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+  background-color: #0db8de;
+  right: 0px;
+}
+
+.login-btm {
+  float: left;
+}
+
+.login-button {
+  /* padding-right: 0px; */
+  /* text-align: right; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.login-text {
+  text-align: left;
+  padding-left: 0px;
+  color: #a2a4a4;
+}
+.login-Email {
+  text-align: left;
+  padding-left: 0px;
+  color: #a2a4a4;
+}
+.loginbttm {
+  padding: 0px;
 }
 </style>

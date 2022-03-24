@@ -2,13 +2,14 @@
 <section id="prices" class="price">
   <h1>Prices</h1>
   <p> Below find more about our affordable prices</p>
+  <div class="container">
   <div class = "container">
-  <div class="container" style="margin-top:30px">
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4">
+  <div class="container" style="margin-top:20px">
+    <div class="row" >
+      <div class="col-sm-12 col-md-6 col-lg-4 ">
         <div class="card mx-auto">
           <img
-            src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
+            src="https://i.postimg.cc/YqX0qKSq/pexels-photo-995300.jpg"
             class="card-img-top"
             alt="..."
           />
@@ -18,18 +19,11 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Customized Designs</li>
             <li class="list-group-item">Aefro Styles</li>
-            <li class="list-group-item">Braiding: R300</li>
+            <li class="list-group-item">Waxing : R45</li>
           </ul>
           <div class="card-body">
+          
             <button
-              style="margin-right: 30px"
-              type="button"
-              class="btn btn-secondary"
-            >
-            R120
-            </button>
-            <button
-              style="margin-left: 30px"
               type="button"
               class="btn btn-secondary"
             >
@@ -56,15 +50,9 @@
             <li class="list-group-item">Facials : R65</li>
           </ul>
           <div class="card-body">
+           
             <button
-              style="margin-right: 30px"
-              type="button"
-              class="btn btn-secondary"
-            >
-              R120
-            </button>
-            <button
-              style="margin-left: 30px"
+           
               type="button"
               class="btn btn-secondary"
             >
@@ -75,11 +63,11 @@
       </div>
 
 
-      <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="col-sm-12 col-md-6 col-lg-4 ">
        
-        <div class="card mx-auto">
+        <div class="card mx-auto" >
           <img
-            src="https://i.postimg.cc/CLjysMyq/pexels-photo-1319460.jpg"
+            src="https://i.postimg.cc/Fs9yf4gM/pexels-photo-4449790.jpg"
             class="card-img-top"
             alt="..."
           />
@@ -89,16 +77,17 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Normal Cuts :R70</li>
             <li class="list-group-item">Triming : R50</li>
-            <li class="list-group-item">Waxing : R45</li>
+            <li class="list-group-item">Faders: R100</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-secondary"> R195</button>&nbsp;
+            <!-- <button type="button" class="btn btn-secondary"> R195</button>&nbsp; -->
           
             <button type="button" class="btn btn-secondary">Book</button>
           </div>
         </div>
       </div>
         </div>
+  </div>
       </div>
     </div>
   
@@ -120,6 +109,10 @@ h1 {
   font-size: 30px;
   max-width: 420px;
   position: relative;
+}
+.bt{
+  margin-left:auto;
+  margin-right:auto
 }
 
 h1:before {
@@ -143,9 +136,9 @@ h1:after {
   position: absolute;
 }
 
-.container{
+/* .container{
 gap: 30px;
-}
+} */
 .card{
   width:300px;
   margin:10px;

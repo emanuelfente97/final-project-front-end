@@ -1,7 +1,10 @@
 <template>
+<section id="services">
+  
   <div class="container">
-    <div class="details">
       <h1>Services</h1>
+    <div class="details">
+    
       <p class="cheat">We Offer the following services</p>
     </div>
     <div class="main-box">
@@ -100,15 +103,76 @@
       </div>
     </div>
   </div>
+</section>
 </template>
 
-<script></script>
+<script>
+export default {
+
+data() {
+    return {
+      products: [],
+      search: "",
+      category: "",
+      price: "",
+      disc:"",
+      title: "",
+    };
+  },
+  mounted() {
+    fetch(" https://final-project-backend-2022.herokuapp.com/", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        this.products = json;
+      });
+  },
+ 
+  computed: {
+    filterProducts: function () {
+      return this.products.filter((product) => {
+        return product.category.toLowerCase().match(this.search.toLowerCase());
+      });
+    },
+  },
+  methods: {
+    sortPrice(price) {
+      this.filterProducts = this.filterProducts.sort(
+        (a, b) => a.price - b.price
+      );
+      if (price == "desc") this.filterProducts.reverse();
+    },
+    sortTitle(title) {
+      this.filterProducts = this.filterProducts.sort((a, b) => {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+          return -1;
+        }
+        if (a.title.toLowerCase() > b.title.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+      if (title == "desc") this.filterProducts.reverse();
+    },
+    filterCategory(category) {
+      if (category) {
+        this.filterProducts = this.products.filter(
+          (product) => product.category == category
+        );
+      } else {
+        this.filterProducts = this.products;
+      }
+    },
+  },
+
+};
+</script>
 
 <style scoped>
-/* #243238
- #404044
- #D50000
-*/
 
 body {
   margin: 0;

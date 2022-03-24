@@ -12,7 +12,11 @@
         <strong>We are the best .</strong>
       </h3>
 
-      <button type="button" class="btn btn-secondary" @click="makeReservation">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        @click="makeReservation"
+      >
         Make a reservation
       </button>
     </div>
@@ -21,9 +25,18 @@
 
 <script>
 export default {
+  data() {
+    return {
+      jwt: localStorage.getItem("jwt") || null,
+    };
+  },
   methods: {
     makeReservation: function () {
-      this.$emit("myReservation", true);
+      if (localStorage.getItem("jwt") !== "undefined") {
+        this.$emit("myReservation", true);
+      } else {
+        alert("you need to be logged in");
+      }
     },
   },
 };
@@ -75,5 +88,13 @@ export default {
 
 .home-img {
   width: 40% !important;
+}
+.btn-outline-primary {
+  border-color: #0db8de;
+  color: #0db8de;
+  border-radius: 0px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 </style>

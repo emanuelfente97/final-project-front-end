@@ -6,8 +6,9 @@
   <Prices v-if="!reserve" />
   <Team v-if="!reserve" />
   <Gallery v-if="!reserve" />
-  
   <Contact v-if="!reserve" />
+    <Footer v-if="!reserve" />
+
   <Reservation v-if="reserve" />
 </template>
 
@@ -22,6 +23,8 @@ import Team from "@/components/Team.vue";
 import Gallery from "@/components/gallery.vue";
 import Contact from "@/components/contact.vue";
 import Reservation from "@/components/Reservation.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   components: {
@@ -34,6 +37,7 @@ export default {
     Gallery,
     Contact,
     Reservation,
+    Footer
   },
   data() {
     return {
