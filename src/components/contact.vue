@@ -4,34 +4,44 @@
    
   <div class="contact-box">
     <div class="contact-links">
-      <h2>Contact us</h2>
+        <h2>Connect with us via our PR</h2>
       <div class="links">
         <div class="link">
-          <a><img src="https://i.postimg.cc/m2mg2Hjm/linkedin.png" alt="linkedin"></a>
-        </div>
-        <div class="link">
-          <a><img src="https://i.postimg.cc/YCV2QBJg/github.png" alt="github"></a>
-        </div>
-        <div class="link">
-          <a><img src="https://i.postimg.cc/W4Znvrry/codepen.png" alt="codepen"></a>
-        </div>
-        <div class="link">
-          <a><img src="https://i.postimg.cc/NjLfyjPB/email.png" alt="email"></a>
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+<body>
+    <!-- <div class="hero"> -->
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=100071966145885" target="_blank"  ><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/simthedikela/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- <a href=""><i class="fab fa-twitter"></i></a> -->
+        <!-- <a href="https://github.com/emanuelfente97"><i class="fab fa-github"></i></a> -->
+        <a href="https://www.linkedin.com/in/ema97/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    <!-- </div> -->
+  </body>
+
+
+
+
         </div>
       </div>
     </div>
     <div class="contact-form-wrapper">
-      <form>
+      <form @submit.prevent="handleSubmit">
         <div class="form-item">
-          <input v-model="name" type="text" name="sender" required>
+          <input v-model="name" type="text" name="name" required>
           <label>Name:</label>
         </div>
         <div class="form-item">
-          <input v-model="email" type="text" name="email" required>
+          <input v-model="email" type="email" name="email" required>
           <label>Email:</label>
         </div>
         <div class="form-item">
-          <textarea v-model="message" class="" name="message" required></textarea>
+          <textarea v-model="message" id="message" class="" name="message" required></textarea>
           <label>Message:</label>
         </div>
         <button class="submit-btn">Submit</button>  
@@ -64,6 +74,7 @@ export default {
         })
           .then((response) => response.json())
           .then((json) => console.log(json.msg))
+          alert("Sucesfully Sent")
           .catch((err) => console.log(err.msg));
     },
   },
@@ -108,21 +119,7 @@ body {
 
 .contact-links {
   background-color: #1a0819;
-  background:
-    radial-gradient(
-      circle at 55% 92%, #426691 0 12%, transparent 12.2%
-    ), 
-    radial-gradient(
-      circle at 94% 72%, #33475f 0 10%, transparent 10.2%
-    ), 
-    radial-gradient(
-      circle at 20% max(78%, 350px), #afb6be 0 7%, transparent 7.2%
-    ), 
-    radial-gradient(
-      circle at 0% 0%, #263a53 0 40%, transparent 40.2%
-    ), 
-    #1f2e43;
-  border-radius: 10px 0 0 10px;
+  background-image: url("https://i.postimg.cc/MKft6bpP/facials.jpg");
 }
 
 .contact-form-wrapper {
@@ -277,5 +274,80 @@ textarea:valid+label {
     height: 38px;
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: #f1f9ff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 100px;
+  margin-top: -100px;
+}
+
+.social-links {
+  display: flex;
+}
+
+.social-links a {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 30px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.social-links a .fab {
+  font-size: 30px;
+  line-height: 80px;
+  position: relative;
+  z-index: 10;
+  transition: color 0.5s;
+}
+
+.social-links a::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: -90px;
+  left: 0;
+  background: #000;
+  background: linear-gradient(-45deg, #ed1c94, #ffec17);
+  position: absolute;
+  transition: 0.5s;
+}
+
+.social-links a:hover::after {
+  top: 0;
+}
+
+.social-links a:hover .fab {
+  color: #fff;
+}
+
+.social-links a:hover {
+  transform: translateY(-10px);
+}
+
 
 </style>

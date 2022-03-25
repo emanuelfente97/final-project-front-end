@@ -50,22 +50,22 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#home"
-            ><i class="fa fa-fw fa-home"></i>Home</a
+            >Home</a
           >
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#about"
-            ><i class="fa fa-user"></i> About</a
+            >About</a
           >
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#services"
-            ><i class="fa fa-bars"></i> Services</a
+            >Services</a
           >
         </li>
         <li class="nav-item">
           <a  class="nav-link" href="#prices"
-            ><i class="bi bi-pencil-square"></i>Prices
+            >Prices
           </a>
         </li>
         <li class="nav-item">
@@ -75,12 +75,12 @@
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#team"
-            ><i class="bi bi-people-fill"></i> Team</a
+            > Team</a
           >
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#contact"
-            ><i class="fa fa-fw fa-envelope"></i>Contacts</a
+            >Contacts</a
           >
         </li>
         <div class="but">
