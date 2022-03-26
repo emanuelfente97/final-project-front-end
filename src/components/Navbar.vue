@@ -394,9 +394,21 @@ export default {
 </script>
 
 <style scoped>
-.modal-backdrop {
-  z-index: 1;
+.modal {
+  z-index: 1 !important;
 }
+
+.modal-backdrop.show {
+  z-index: 1 !important;
+}
+.modal-backdrop {
+  z-index: 1 !important;
+}
+
+.modal.fade {
+  z-index: 10000000 !important;
+}
+
 .logo {
   width: 100px;
   position: relative;
