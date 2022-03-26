@@ -394,6 +394,9 @@ export default {
 </script>
 
 <style scoped>
+.modal-backdrop {
+  z-index: 1;
+}
 .logo {
   width: 100px;
   position: relative;
