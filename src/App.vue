@@ -56,6 +56,12 @@ export default {
 </script>
 
 <style>
+.modal-backdrop.show {
+  z-index: 1 !important;
+}
+.modal-backdrop {
+  z-index: 1 !important;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
