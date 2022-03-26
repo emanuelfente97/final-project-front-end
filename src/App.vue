@@ -1,13 +1,13 @@
 <template>
-  <Navbar @changePage="checkReservation" />
+  <Navbar @changePage="checkReservation" @changedLoginState="changedState" />
   <Home @myReservation="checkReservation" v-if="!reserve" />
   <About v-if="!reserve" />
-  <Services v-if="!reserve" />
+  <Services v-if="!reserve" :key="key" />
   <Prices @myReservation="checkReservation" v-if="!reserve" />
   <Team v-if="!reserve" />
   <Gallery v-if="!reserve" />
   <Contact v-if="!reserve" />
-    <Footer v-if="!reserve" />
+  <Footer v-if="!reserve" />
 
   <Reservation v-if="reserve" />
 </template>
@@ -25,7 +25,6 @@ import Contact from "@/components/contact.vue";
 import Reservation from "@/components/Reservation.vue";
 import Footer from "@/components/Footer.vue";
 
-
 export default {
   components: {
     Navbar,
@@ -37,17 +36,20 @@ export default {
     Gallery,
     Contact,
     Reservation,
-    Footer
+    Footer,
   },
   data() {
     return {
       reserve: false,
+      key: 0,
     };
   },
   methods: {
     checkReservation: function (reserve) {
-      console.log("we made it");
       this.reserve = reserve;
+    },
+    changedState() {
+      this.key++;
     },
   },
 };

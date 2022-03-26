@@ -49,14 +49,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#home"
-            >Home</a
-          >
+          <a class="nav-link" aria-current="page" href="#home">Home</a>
         </li>
         <li class="nav-item">
-          <a @click="hideReservation" class="nav-link" href="#about"
-            >About</a
-          >
+          <a @click="hideReservation" class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#services"
@@ -64,9 +60,7 @@
           >
         </li>
         <li class="nav-item">
-          <a  class="nav-link" href="#prices"
-            >Prices
-          </a>
+          <a class="nav-link" href="#prices">Prices </a>
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#gallery"
@@ -74,9 +68,7 @@
           >
         </li>
         <li class="nav-item">
-          <a @click="hideReservation" class="nav-link" href="#team"
-            > Team</a
-          >
+          <a @click="hideReservation" class="nav-link" href="#team"> Team</a>
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#contact"
@@ -87,6 +79,7 @@
           &nbsp; &nbsp;
           <!-- Button trigger modal -->
           <button
+            v-if="!userLoggedIn"
             type="button"
             class="btn btn-outline-primary"
             data-bs-toggle="modal"
@@ -295,7 +288,12 @@
               </div>
             </div>
           </div>
-          <button @click="logout" type="button" class="btn btn-outline-primary">
+          <button
+            v-if="userLoggedIn"
+            @click="logout"
+            type="button"
+            class="btn btn-outline-primary"
+          >
             Log out
           </button>
         </div>
@@ -316,7 +314,18 @@ export default {
       username: "",
       password: "",
       email: "",
+      userLoggedIn: false,
     };
+  },
+  watch: {
+    userLoggedIn() {
+      this.$emit("changedLoginState");
+    },
+  },
+  mounted() {
+    if (localStorage.getItem("jwt")) {
+      this.userLoggedIn = true;
+    }
   },
   methods: {
     login() {
@@ -331,13 +340,17 @@ export default {
         },
       })
         .then((response) => response.json())
-        .then(async(json) => {
-          if(json.accessToken)
-          console.log(json);
-          console.log(json.accessToken)
-          alert("User logged in");
-          await localStorage.setItem("jwt", json.accessToken);
-          
+        .then(async (json) => {
+          if (json.accessToken) {
+            await localStorage.setItem("jwt", json.accessToken);
+            await localStorage.setItem("isAdmin", json.isAdmin);
+            alert("User logged in");
+            this.userLoggedIn = true;
+          } else {
+            alert(
+              "User not found.  Please make sure you've entered the correct credentials"
+            );
+          }
         })
         .catch((err) => {
           alert(err);
@@ -347,25 +360,29 @@ export default {
       localStorage.clear();
       console.log("logout");
       alert("user logged out");
+      this.userLoggedIn = false;
     },
     register() {
-      fetch(" https://final-project-backend-2022.herokuapp.com/api/auth/register", {
-        method: "POST",
-        body: JSON.stringify({
-          username: this.username,
-          password: this.password,
-          email: this.email,
-        }),
-        mode: "cors",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
+      fetch(
+        " https://final-project-backend-2022.herokuapp.com/api/auth/register",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            username: this.username,
+            password: this.password,
+            email: this.email,
+          }),
+          mode: "cors",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      )
         .then((response) => response.json())
         .then((json) => {
           // console.log(json);
           localStorage.getItem("jwt", json.accessToken);
-          console.log(json.accessToken)
+          console.log(json.accessToken);
           alert("User signed up");
           // this.$router.push({ name: "services" });
         })

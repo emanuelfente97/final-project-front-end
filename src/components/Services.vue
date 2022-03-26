@@ -1,25 +1,30 @@
 <template>
-<section id="services">
-  
+  <section id="services">
+    <!-- add -->
 
-<!-- add -->
+    <!-- get -->
 
-
-      
- <!-- get -->
-
-
-
-
-  <div class="container">
+    <div class="container">
       <h1>Services</h1>
-    <div class="details">
-    
-      <p class="cheat">We Offer the following services</p>
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal2"> Add Services
-</button>&nbsp;&nbsp; <label>Sort Price:
-          <select style="height:30px" v-model="price" @change="sortPrice(price)">
+      <div class="details">
+        <p class="cheat">We Offer the following services</p>
+        <!-- Button trigger modal -->
+        <button
+          v-if="isAdmin"
+          type="button"
+          class="btn btn-none"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2"
+        >
+          Add Services</button
+        >&nbsp;&nbsp;
+        <label
+          >Sort Price:
+          <select
+            style="height: 30px"
+            v-model="price"
+            @change="sortPrice(price)"
+          >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
@@ -27,104 +32,124 @@
         &nbsp;&nbsp;
         <label>
           Sort Name:
-          <select style="height:30px" v-model="title" @change="sortTitle(title)">
+          <select
+            style="height: 30px"
+            v-model="title"
+            @change="sortTitle(title)"
+          >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
         </label>
 
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Create Modal -->
+        <div
+          class="modal fade"
+          ref="updateModal"
+          id="exampleModal2"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel2"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <FormComponent
+                  :data="{}"
+                  :isCreate="true"
+                  @success="getServices()"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-         <form @submit.prevent="createService">
-        <ul>
-         <li>Tittle </li>
-          <li> <input v-model="title" required type="text"></li>
-          <li>Price</li>
-          <li> <input v-model="price" required type="number"></li>
-        <li>desc</li>
-        <li> <input v-model="desc" required type="text"></li>
-        <li>categories</li>
-        <li> <input v-model="categories" required type="text"></li>
-        <li>img</li>
-        <li> <input v-model="img" required type="text"></li>
-       </ul>
-       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success">Add Service</button>
-        
-       </form>
-      </div>
-      
-    </div>
-  </div>
-</div>
-    </div>
-    <div class="main-box" >
-      <div class="box box-red mx-auto" v-for="product in products" :key="product._id" >
-        <div class="icon">
-          <img :src="product.img" alt="pik" 
-            
-            style="width: 100px; height: 100px; border-radius: 50%">
-          <!-- <img
+      <div class="main-box">
+        <div
+          class="box box-red mx-auto"
+          v-for="product in products"
+          :key="product._id"
+        >
+          <div class="icon">
+            <img
+              :src="product.img"
+              alt="pik"
+              style="width: 100px; height: 100px; border-radius: 50%"
+            />
+            <!-- <img
             class="img"
             src="https://i.postimg.cc/MKft6bpP/facials.jpg"
             style="width: 100px; height: 100px; border-radius: 50%"
           /> -->
-        </div>
-           <h3> {{product.title}} </h3>
-        <hr />
-        <p>
-          {{product.desc}}
-         <!-- A realxing treatment that cleanses, revujenates and moisturises the skin to reveal the inner glow.
+          </div>
+          <h3>{{ product.title }}</h3>
+          <hr />
+          <p>
+            {{ product.desc }}
+            <!-- A realxing treatment that cleanses, revujenates and moisturises the skin to reveal the inner glow.
          Your face will thank you. -->
-        </p>
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal4">View Service</button>&nbsp;
-        <!-- <button type="button" class="btn btn-secondary">R{{product.price}}</button> -->
-                <button type="button" class="btn btn-secondary" v-on:click="removeService(product._id)">Delete</button>
-      </div>
+          </p>
+          <button type="button" class="btn btn-secondary">
+            R {{ product.price }}</button
+          >&nbsp;
+          <!-- <button type="button" class="btn btn-secondary">R{{product.price}}</button> -->
+          <button
+            v-if="isAdmin"
+            type="button"
+            class="btn btn-secondary"
+            v-on:click="removeService(product._id)"
+          >
+            Delete</button
+          >&nbsp;
+          <button
+            v-if="isAdmin"
+            @click="update(product)"
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal4"
+          >
+            Update
+          </button>
+        </div>
 
-    <!-- MOdal For Update -->
-<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel4">Edit Note</h5>
-        
-        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+        <!-- MOdal For Update -->
+        <div
+          class="modal fade"
+          id="exampleModal4"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel4"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel4">Edit Note</h5>
 
-      <div class="modal-body">
-       <form @submit.prevent="updateService(+ id)">
-        <ul>
-           <li>Tittle </li>
-          <li> <input v-model="title" required type="text"></li>
-          <li>Price</li>
-          <li> <input v-model="price" required type="number"></li>
-        <li>desc</li>
-        <li> <input v-model="desc" required type="text"></li>
-        <li>categories</li>
-        <li> <input v-model="categories" required type="text"></li>
-        <li>img</li>
-        <li> <input v-model="img" required type="text"></li>
-       </ul>
-      
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit"  class="btn btn-success">Save changes</button>
-        
-       </form>
-      </div>
-     
-    </div>
-  </div>
-</div>
-      <!-- <div class="box box-grey mx-auto">
+                <button
+                  type="button"
+                  class="btn-close btn-danger"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <div class="modal-body">
+                <FormComponent :data="form" :isCreate="false" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="box box-grey mx-auto">
         <img
           class="img"
           src="https://i.postimg.cc/rmqPvz69/beard-trim.jpg"
@@ -210,36 +235,38 @@
 
       </div>
     </div> -->
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
+import FormComponent from "./servicesComponents/formComponent.vue";
 export default {
-data() {
+  components: {
+    FormComponent,
+  },
+  data() {
     return {
-       title: "",
-    desc: "",
-    img: "",
-    categories: "",
-    price: "",
-    products:null
+      form: {},
+      products: null,
+      userLoggedIn: false,
+      isAdmin: false,
     };
   },
   mounted() {
-    fetch(" https://final-project-backend-2022.herokuapp.com/api/products", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        this.products = json;
-      });
+    if (localStorage.getItem("jwt")) {
+      this.userLoggedIn = true;
+    }
+
+    console.log(localStorage.getItem("isAdmin"));
+    if (localStorage.getItem("isAdmin") === "true") {
+      this.isAdmin = true;
+    }
+
+    this.getServices();
   },
- 
+
   computed: {
     filterProducts: function () {
       return this.products.filter((product) => {
@@ -248,6 +275,18 @@ data() {
     },
   },
   methods: {
+    getServices() {
+      fetch(" https://final-project-backend-2022.herokuapp.com/api/products", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.products = json;
+        });
+    },
     sortPrice(price) {
       this.filterProducts = this.filterProducts.sort(
         (a, b) => a.price - b.price
@@ -275,95 +314,36 @@ data() {
         this.filterProducts = this.products;
       }
     },
-  //  add
-     createService() {
-        
+
+    removeService(id) {
       if (!localStorage.getItem("jwt")) {
-        alert("User not logged in");
-       
-      }
-    fetch(" https://final-project-backend-2022.herokuapp.com/api/products", {
-        method: "POST",
-        body: JSON.stringify({
-          title: this.title,
-          categories: this.categories,
-          desc: this.desc,
-          img:this.img,
-          price: this.price,
-
-    
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          token: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-        .then((response) => response.json())
-    
-        .then((json) => {
-         
-          alert("Service added");
-         
-        })
-        .catch((err) => {
-          console.log(err)
-          alert("It failed.Try again please");
-          this.loading = false;
-        });
-    },
-
-    //Update
-     updateService() {
-      if (!localStorage.getItem("jwt")) {
-        alert("User not logged in");
-      }
-      fetch(" https://final-project-backend-2022.herokuapp.com/api/products" + id, {
-        method: "PUT",
-        body: JSON.stringify({
-          tittle: this.tittle,
-          categories: this.categories,
-          price: this.price,
-          img: this.img,
-          desc: this.desc
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          token: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          alert("Service Edited");
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    },
-
-    //Delete
-
- removeService(id) {
-    if (!localStorage.getItem("jwt")) {
         alert("User not logged in");
       }
       console.log(id);
-      fetch("https://final-project-backend-2022.herokuapp.com/api/products/" + id, {
-        method: "DELETE",
+      fetch(
+        "https://final-project-backend-2022.herokuapp.com/api/products/" + id,
+        {
+          method: "DELETE",
           headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          token: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
+            "Content-type": "application/json; charset=UTF-8",
+            token: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          this.getServices();
           alert("Service removed successfully");
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     },
-  },    
+    update(product) {
+      this.form = product;
+    },
+  },
 };
 </script>
 
@@ -374,8 +354,8 @@ body {
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-#services{
-  padding-top:65px
+#services {
+  padding-top: 65px;
 }
 .container {
   width: 80%;
@@ -383,10 +363,9 @@ body {
 }
 .details {
   text-align: center;
- 
 }
-.cheat{
-     margin-top: -75px;
+.cheat {
+  margin-top: -75px;
 }
 .details h2 {
   color: #243238;
@@ -507,7 +486,7 @@ hr {
 .box-red {
   background-color: #d50000;
 }
-.container{
+.container {
   width: 80%;
 }
 </style>
