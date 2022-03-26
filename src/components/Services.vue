@@ -1,11 +1,7 @@
 <template>
   <section id="services">
-    <!-- add -->
-
-    <!-- get -->
-
     <div class="container">
-      <h1>Services</h1>
+      <h1 id="title" style="font-size: 45px"><strong>Services</strong></h1>
       <div class="details">
         <p class="cheat">We Offer the following services</p>
         <!-- Button trigger modal -->
@@ -85,27 +81,20 @@
               alt="pik"
               style="width: 100px; height: 100px; border-radius: 50%"
             />
-            <!-- <img
-            class="img"
-            src="https://i.postimg.cc/MKft6bpP/facials.jpg"
-            style="width: 100px; height: 100px; border-radius: 50%"
-          /> -->
           </div>
           <h3>{{ product.title }}</h3>
           <hr />
+
           <p>
             {{ product.desc }}
-            <!-- A realxing treatment that cleanses, revujenates and moisturises the skin to reveal the inner glow.
-         Your face will thank you. -->
           </p>
-          <button type="button" class="btn btn-secondary">
+          <button type="button" class="btn btn-primary">
             R {{ product.price }}</button
           >&nbsp;
-          <!-- <button type="button" class="btn btn-secondary">R{{product.price}}</button> -->
           <button
             v-if="isAdmin"
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-primary"
             v-on:click="removeService(product._id)"
           >
             Delete</button
@@ -114,7 +103,7 @@
             v-if="isAdmin"
             @click="update(product)"
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal4"
           >
@@ -149,92 +138,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="box box-grey mx-auto">
-        <img
-          class="img"
-          src="https://i.postimg.cc/rmqPvz69/beard-trim.jpg"
-          style="width: 100px; height: 100px; border-radius: 50%"
-        />
-
-        <h2>Beard Trim</h2>
-        <hr />
-        <p>
-         Let your Tame face manee to your liking and give you the jaw line you were destined to have. 
-        </p>
-        <button type="button" class="btn btn-secondary">Book</button>&nbsp;
-        <button type="button" class="btn btn-secondary">R25</button>
-      </div>
-
-      <div class="box box-red mx-auto">
-        <div class="icon">
-          <img
-            class="img"
-            src="https://i.postimg.cc/hPFc5by8/hair-cut.jpg"
-            style="width: 100px; height: 100px; border-radius: 50%"
-          />
-        </div>
-        <h2>Hair Cut</h2>
-        <hr />
-        <p>
-   Our Hair cut comes with a shampoo and conditioning tretment, neck shave and very comfortable couches.
-        </p>
-        <button type="button" class="btn btn-secondary">Book</button>&nbsp;
-        <button type="button" class="btn btn-secondary">R25</button>
-
-      </div>
-
-      <div class="box box-grey mx-auto">
-        <div class="icon">
-          <img
-            class="img"
-            src="https://i.postimg.cc/7Yv5hn78/waxing.jpg"
-            style="width: 100px; height: 100px; border-radius: 50%"
-          />
-        </div>
-        <h2>Coloring</h2>
-        <hr />
-        <p>
-        We will blend away your gray hairs to create a younger natural-looking you. Who can't turn back time?
-
-        </p>
-        <button type="button" class="btn btn-secondary">Book</button>&nbsp;
-        <button type="button" class="btn btn-secondary">R25</button>
-      </div>
-      <div class="box box-red mx-auto">
-        <div class="icon">
-          <img
-            class="img"
-            src="https://i.postimg.cc/XvQszCFc/hair-cut-and-trim.jpg"
-            style="width: 100px; height: 100px; border-radius: 50%"
-          />
-        </div>
-        <h2>Hair Cut and Trim </h2>
-        <hr />
-        <p>
-         No bad hair days here. Everything you need to stay fresh and so clean. Take it up a notch with a premium, nourishing hair treatment add-on.
-        </p>;
-        <button type="button" class="btn btn-secondary">Book</button>&nbsp;
-        <button type="button" class="btn btn-secondary">R25</button>
-      </div>
-
-      <div class="box box-grey mx-auto" style="background-image: url(https://i.postimg.cc/C14nNGqS/backgraound.jpg);">
-        <div class="icon">
-          <img
-            class="img"
-            src="https://i.postimg.cc/QMzvw1fS/services1.jpg"
-            style="width: 100px; height: 100px; border-radius: 50%"
-          />
-        </div>
-        <h2>Wash</h2>
-        <hr />
-        <p>
-          Struggling to wash your hair? Legends barber shop provide the best service that comes with shampoo, hair conditioning and comfortable seats. 
-        </p>
-        <button type="button" class="btn btn-secondary">Book</button>&nbsp;
-        <button type="button" class="btn btn-secondary">R25</button>
-
-      </div>
-    </div> -->
       </div>
     </div>
   </section>
@@ -357,6 +260,9 @@ body {
 #services {
   padding-top: 65px;
 }
+button {
+  margin-top: 10px;
+}
 .container {
   width: 80%;
   margin: 0 auto;
@@ -372,35 +278,17 @@ body {
   font-size: 50px;
   margin: 0;
 }
+
 h1 {
   font-family: sans-serif;
   margin: 100px auto;
-  color: #228b22;
+  color: #2c3e50;
   text-align: center;
   font-size: 30px;
   max-width: 420px;
   position: relative;
 }
-h1:before {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 2px;
-  background: #000;
-  left: 0;
-  top: 50%;
-  position: absolute;
-}
-h1:after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 2px;
-  background: #000;
-  right: 0;
-  top: 50%;
-  position: absolute;
-}
+
 .main-box {
   display: flex;
   bottom: 100px;
@@ -415,7 +303,7 @@ h1:after {
   padding: 40px 20px;
   color: #ffffff;
   position: relative;
-  z-index: 2;
+  z-index: 10000;
   border-radius: 5px;
 }
 .box > * {
@@ -456,6 +344,9 @@ h1:after {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.modal-backdrop {
+  z-index: 10000;
+}
 hr {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -481,10 +372,10 @@ hr {
   border: 1px solid #ffffff;
 }
 .box-grey {
-  background-color: #404044;
+  background-color: #9b9be2;
 }
 .box-red {
-  background-color: #d50000;
+  background-color: rgb(128, 128, 128);
 }
 .container {
   width: 80%;

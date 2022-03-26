@@ -59,9 +59,7 @@
             >Services</a
           >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#prices">Prices </a>
-        </li>
+
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#gallery"
             ><i class="bi bi-file-earmark-code-fill"></i> Gallery</a
@@ -423,7 +421,7 @@ export default {
 
   justify-content: space-between;
   align-items: center;
-  background-color: black;
+  background-color: #050a0e;
   position: fixed;
   top: 0;
   left: 0;

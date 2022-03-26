@@ -19,26 +19,27 @@
               hair.We are committed to being an inclusive and welcoming
               environment for every client and member of our team who enter our
               space regardless of gender, race, sexual orientation, religion or
-              politics. To find book and find more about Legends Barber Shop
+              politics. To find more about
+              <span style="color: purple">Legends Barber Shop</span>
               click on the buttons below:
             </p>
             <div class="row about-list">
               <div class="col-md-6">
                 <div class="media">
                   <a href="#services"
-                    ><button
-                      type="button"
-                     
-                      class="btn btn-primary"
-                    >
+                    ><button type="button" class="btn btn-primary">
                       Services
                     </button></a
                   >
                 </div>
               </div>
               <div class="col-lg-6">
-             <div class="media">
-                    <a href="#prices"> <button type="button" class="btn btn-primary">Prices</button></a>
+                <div class="media">
+                  <a href="#contact">
+                    <button type="button" class="btn btn-primary">
+                      Contact us
+                    </button></a
+                  >
                 </div>
               </div>
             </div>
@@ -65,8 +66,8 @@
   /* padding: 60px; */
   background-color: #c9d0d3;
 }
-#about{
-    padding-top:70px
+#about {
+  padding-top: 70px;
 }
 .title {
   text-align: center;
@@ -83,9 +84,7 @@
 h3 {
   padding-bottom: 30px;
 }
-#title {
-  border-bottom: 3px solid red;
-}
+
 .about-text {
   padding-top: 20px;
 }

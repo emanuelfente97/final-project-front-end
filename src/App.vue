@@ -3,7 +3,7 @@
   <Home @myReservation="checkReservation" v-if="!reserve" />
   <About v-if="!reserve" />
   <Services v-if="!reserve" :key="key" />
-  <Prices @myReservation="checkReservation" v-if="!reserve" />
+
   <Team v-if="!reserve" />
   <Gallery v-if="!reserve" />
   <Contact v-if="!reserve" />
@@ -17,7 +17,7 @@ import Navbar from "@/components/Navbar.vue";
 import Home from "@/components/Home.vue";
 import About from "@/components/About.vue";
 import Services from "@/components/Services.vue";
-import Prices from "@/components/prices.vue";
+
 import Team from "@/components/Team.vue";
 
 import Gallery from "@/components/gallery.vue";
@@ -32,7 +32,7 @@ export default {
     About,
     Services,
     Team,
-    Prices,
+
     Gallery,
     Contact,
     Reservation,
