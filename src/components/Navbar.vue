@@ -90,7 +90,7 @@
 
           <!-- Modal -->
           <div
-            class="modal fade"
+            class="modal"
             id="exampleModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
@@ -191,7 +191,7 @@
 
           <!-- Modal for sigup -->
           <div
-            class="modal fade"
+            class="modal"
             id="exampleModal1"
             tabindex="-1"
             aria-labelledby="exampleModalLabel1"
