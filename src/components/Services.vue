@@ -88,13 +88,30 @@
           <p>
             {{ product.desc }}
           </p>
-          <button type="button" class="btn btn-primary">
+          <button
+            type="button"
+            class="btn"
+            style="border-color: #0db8de;
+    color: #0db8de;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}"
+          >
             R {{ product.price }}</button
           >&nbsp;
           <button
             v-if="isAdmin"
             type="button"
-            class="btn btn-primary"
+            class="btn"
+            style="border-color: #0db8de;
+    color: #0db8de;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}"
             v-on:click="removeService(product._id)"
           >
             Delete</button
@@ -103,7 +120,14 @@
             v-if="isAdmin"
             @click="update(product)"
             type="button"
-            class="btn btn-primary"
+            style="border-color: #0db8de;
+    color: #0db8de;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}"
+            class="btn"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal4"
           >
@@ -303,7 +327,7 @@ h1 {
   padding: 40px 20px;
   color: #ffffff;
   position: relative;
-  z-index: 10000;
+  /* z-index: 10000; */
   border-radius: 5px;
 }
 .box > * {

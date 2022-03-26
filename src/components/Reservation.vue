@@ -23,16 +23,7 @@
                     placeholder="Name"
                   />
                 </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    required
-                    v-model="surname"
-                    class="form-control"
-                    placeholder="Surname"
-                  />
-                </div>
-               
+
                 <div class="col-md-6">
                   <input
                     type="email"
@@ -98,9 +89,9 @@
 export default {
   data() {
     return {
-       name: "",
+      name: "",
       surname: "",
-      date:"",
+      date: "",
       time: "",
       message: "",
       form: false,
@@ -116,8 +107,8 @@ export default {
     showForm() {
       this.form = !this.form;
     },
-  
-  handleSubmit() {
+
+    handleSubmit() {
       (this.name, this.surname, this.email, this.date, this.message, this.time),
         fetch("https://final-project-backend-2022.herokuapp.com/api/contacts", {
           method: "POST",
