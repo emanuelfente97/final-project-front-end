@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#home">Home</a>
+          <a class="nav-link" aria-current="page" href="#home">Homes</a>
         </li>
         <li class="nav-item">
           <a @click="hideReservation" class="nav-link" href="#about">About</a>
